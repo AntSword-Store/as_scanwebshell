@@ -66,7 +66,7 @@ class Plugin {
             _: self.getPayload(opt['type'])
           }).then((_ret) => { // 处理返回数据
             let griddata = [];
-            var _r = JSON.parse(_ret['text']);
+            var _r = JSON.parse(antSword.unxss(_ret['text']));
             _r = self.getdistinctres([], _r);
             _r.map((a, i) => {
               griddata.push({
